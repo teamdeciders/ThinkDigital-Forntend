@@ -1,4 +1,3 @@
-hello i am anik
-hello i am zaman
-checkout by anik
-checked by zaman
+Chakra Ui Package Installed and setup done.
+React Icons Package Installed
+React Toasstfy Added
