@@ -2,7 +2,9 @@ import React from 'react'
 
 const TopSellers = () => {
   return (
-    <div>TopSellers</div>
+    <div className=' w-full bg-[#ededed] p-2 h-full max-h-screen overflow-hidden'>
+      TopSellers
+      </div>
   )
 }
 

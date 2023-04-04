@@ -1,9 +1,16 @@
-import React from 'react'
+import { Button } from '@chakra-ui/react';
+import React, { useEffect } from 'react'
+import { toast } from 'react-toastify';
 
 const Home = () => {
+        
+    const notify = () => toast("Wow so easy!");
+
+
     return (
-        <div className='font-bodyFont max-w-container mx-auto bg-red-600 '>
+        <div className=' w-full bg-[#ededed] p-2 h-full max-h-screen overflow-hidden'>
             hello world
+            <Button onClick={notify} colorScheme='blue'>Button</Button>
         </div>
     )
 }

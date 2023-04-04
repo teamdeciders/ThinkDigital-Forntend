@@ -14,20 +14,11 @@ export default {
         containerxs: '768px'
       },
       screens: {
-        xs: '320px',
-        sm: '375px',
-        sml: '500px',
-        md: '667px',
-        mdl: '768px',
-        lg: '960px',
-        lgl: '1024px',
-        xl: '1280px'
-      },
-
-
-      fontFamily: {
-        bodyFont: ['Montserrat', 'sans-serif'],
-        titleFont: ['Roboto', 'sans-serif']
+        'xs': {'min': '320px', 'max': '639px'},
+        'sm': {'min': '640px', 'max': '767px'},
+        'md': {'min': '768px', 'max': '1023px'},
+        'lg': {'min': '1024px', 'max': '1279px'},
+        'xl': {'min': '1280px'},
       },
     },
   },

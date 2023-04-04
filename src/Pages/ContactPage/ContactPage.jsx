@@ -2,7 +2,8 @@ import React from 'react'
 
 const ContactPage = () => {
   return (
-    <div>ContactPage</div>
+    <div className='w-full bg-[#ededed] p-2 h-full max-h-screen overflow-hidden'>
+      ContactPage</div>
   )
 }
 
