@@ -4,9 +4,9 @@ import { CiLocationOn } from 'react-icons/ci'
 import { RiMailOpenLine } from 'react-icons/ri'
 const ContactForm = () => {
     return (
-        <div className=' bg-[#A13BCD] w-4/5 h-full mx-auto xl:flex'>
+        <div className=' w-4/5 mx-auto xl:flex'>
 
-            <div className='xl:w-[400px] w-full  h-full flex flex-col gap-2 px-4 py-6'>
+            <div className='xl:w-[400px] bg-[#A13BCD] w-full flex flex-col gap-2 px-4 py-6'>
                 <h1 className='text-xl font-bold text-white'>Contact Information.</h1>
                 <p className='text-sm text-white'>Contact Information.
 
@@ -36,7 +36,7 @@ const ContactForm = () => {
                 </div>
             </div>
 
-            <div className='w-full h-full min-h-screen bg-white rounded-l-md shadow p-4'>
+            <div className='w-full   bg-white rounded-l-md shadow p-4'>
                 <div className='xl:flex gap-2 w-full'>
                     <div className="mb-5">
                         <label
@@ -108,7 +108,7 @@ const ContactForm = () => {
                 <button
           className="hover:shadow-form rounded-md bg-[#B05AD6] py-3 px-8 text-base font-semibold text-white outline-none"
         >
-          Sent
+          Send
         </button>
             </div>
 

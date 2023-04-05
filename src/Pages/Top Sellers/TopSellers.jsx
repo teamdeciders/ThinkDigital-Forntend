@@ -3,7 +3,7 @@ import TopSellerCard from './TopSellerCard'
 
 const TopSellers = () => {
   return (
-    <div className=' w-full bg-[#ededed] p-2 h-full max-h-screen overflow-hidden'>
+    <div className=' w-full   p-2 h-full '>
       <div className='grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 '>
       <TopSellerCard/>
       <TopSellerCard/>

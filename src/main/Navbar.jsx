@@ -15,7 +15,8 @@ import { HiUsers } from "react-icons/hi";
 import { FaGifts, FaUserCircle } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import { useColorMode } from "@chakra-ui/react";
-import Singup from "../Pages/Authentication.jsx/Singup";
+import LoginSignupModal from "../Pages/Authentication.jsx/LoginSignupModal";
+import FilterProducts from "./FilterProducts";
 const Navbar = ({ Outlet }) => {
   const location = useLocation();
   const [isopen, setisOpen] = useState(true);
@@ -31,11 +32,11 @@ const Navbar = ({ Outlet }) => {
     // Navbar and Sidevar Here
     <div className="relative">
       {/* Navbar for mobile */}
-      <div className=" p-2 bottom-[73px] absolute shadow-sm border-t-2 bg-white w-full sm:hidden md:hidden lg:hidden xl:hidden">
+      <div className=" p-2 bg-white fixed bottom-0 shadow-sm border-t-2  w-full sm:hidden md:hidden lg:hidden xl:hidden">
         <div className="grid grid-cols-5 gap-3">
           <Link
             to={"/"}
-            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${location.pathname === "/"
+            className={` hover:scale-105 duration-500 h-10 flex items-center justify-center ${location.pathname === "/"
               ? "text-black bg-gray-100 "
               : "text-[#766565] bg-white-100"
               }`}
@@ -81,7 +82,7 @@ const Navbar = ({ Outlet }) => {
         </div>
       </div>
       {/* Navabr */}
-      <div className="py-4 px-2 bg-white shadow-sm flex items-center">
+      <div className="py-4 px-2 shadow-sm flex items-center">
         <RiMenu2Line size={70}
           onClick={() => setisOpen(!isopen)}
           className=" mr-5 cursor-pointer xs:hidden  xl:flex "
@@ -134,7 +135,7 @@ const Navbar = ({ Outlet }) => {
 
             {/* create acount for modal */}
             <div>
-              {openModal && <Singup setOpenModal={setOpenModal} />}
+              {openModal && <LoginSignupModal setOpenModal={setOpenModal} />}
 
               <FaUserCircle onClick={() => setOpenModal(true)}
                 className="text-2xl text-[#a77f7f]"
@@ -147,6 +148,7 @@ const Navbar = ({ Outlet }) => {
           </div>
         </div>
       </div>
+       
       {/* Sidebar Hear */}
       <div className="flex">
         {isopen && (
@@ -238,7 +240,7 @@ const Navbar = ({ Outlet }) => {
                 Help
               </Link>
             </div>
-            <div className="bg-gray-50 mt-6 h-full w-full border-t-2 text-xs justify-center  ">
+            <div className=" mt-6 h-full w-full border-t-2 text-xs justify-center  ">
               <div className="flex gap-3 mt-5 w-full justify-center">
                 <Link to={"/terms"}>Terms</Link>
                 <Link to={"/privacy"}>Privacy</Link>
@@ -252,9 +254,24 @@ const Navbar = ({ Outlet }) => {
         )}
         {/* Outlet Here */}
 
+        
         <div
           className={`min-h-screen border-r-2 ${!isopen ? "w-full" : "w-full"}`}
         >
+          <div>
+          {
+            location.pathname == "/explore" && <FilterProducts/>
+          }
+          {
+            location.pathname == "/" && <FilterProducts/>
+          }
+          {
+            location.pathname == "/popular-products" && <FilterProducts/>
+          }
+          {
+            location.pathname == "/free-recourses" && <FilterProducts/>
+          }
+          </div>
           <Outlet />
         </div>
       </div>

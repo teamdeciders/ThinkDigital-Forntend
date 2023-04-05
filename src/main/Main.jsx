@@ -5,7 +5,7 @@ import Footer from './Footer'
 
 const Main = () => {
   return (
-    <div className='h-full max-h-screen overflow-hidden'>
+    <div className='h-full '>
 
       <Navbar Outlet={Outlet} />
       {/* <Footer/> */}
