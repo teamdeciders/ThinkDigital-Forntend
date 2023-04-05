@@ -8,48 +8,52 @@ import TopSellers from "../Pages/Top Sellers/TopSellers";
 import FreeRecourses from "../Pages/Free Recourses/FreeRecourses";
 import Settings from "../Pages/Settings/Settings";
 import Helps from "../Pages/Helps/Helps";
+import Singup from "../Pages/Authentication.jsx/Singup";
 
 const routes = createBrowserRouter([
     {
-        path:"/",
-        element:<Main/>,
-        children:[
+        path: "/",
+        element: <Main />,
+        children: [
             {
-                path:"/",
-                element:<Home/>
-            }, 
-            {
-                path:"/explore",
-                element:<Explore/>
-            }, 
-            {
-                path:"/popular-products",
-                element:<PopularProducts/>
-            }, 
-            {
-                path:"/top-sellers",
-                element:<TopSellers/>
-            }, 
-            
-            {
-                path:"/free-recourses",
-                element:<FreeRecourses/>
-            }, 
-            
-             {
-                path:"/contactpage",
-                element:<ContactPage/>
+                path: "/",
+                element: <Home />
             },
-             {
-                path:"/sttings",
-                element:<Settings/>
+            {
+                path: "/explore",
+                element: <Explore />
             },
-             {
-                path:"/help",
-                element:<Helps/>
+            {
+                path: "/popular-products",
+                element: <PopularProducts />
+            },
+            {
+                path: "/top-sellers",
+                element: <TopSellers />
             },
 
-        ]
+            {
+                path: "/free-recourses",
+                element: <FreeRecourses />
+            },
+
+            {
+                path: "/contactpage",
+                element: <ContactPage />
+            },
+            {
+                path: "/sttings",
+                element: <Settings />
+            },
+            {
+                path: "/help",
+                element: <Helps />
+            },
+
+           
+
+        ],
+
     }
 ])
 

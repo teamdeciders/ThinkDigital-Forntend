@@ -12,12 +12,21 @@ import {
 import { MdExplore, MdSettings, MdOutlineHelp } from "react-icons/md";
 import { GiShop } from "react-icons/gi";
 import { HiUsers } from "react-icons/hi";
-import { FaGifts ,FaUserCircle} from "react-icons/fa";
-import { BiSearch} from "react-icons/bi";
+import { FaGifts, FaUserCircle } from "react-icons/fa";
+import { BiSearch } from "react-icons/bi";
+import { useColorMode } from "@chakra-ui/react";
+import Singup from "../Pages/Authentication.jsx/Singup";
 const Navbar = ({ Outlet }) => {
   const location = useLocation();
   const [isopen, setisOpen] = useState(true);
+  //dark theme
   const [themeMode, setThemeMode] = useState("light");
+  const { toggleColorMode } = useColorMode()
+
+  //craete acount
+  const [openModal, setOpenModal] = useState(false)
+
+
   return (
     // Navbar and Sidevar Here
     <div className="relative">
@@ -26,51 +35,46 @@ const Navbar = ({ Outlet }) => {
         <div className="grid grid-cols-5 gap-3">
           <Link
             to={"/"}
-            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${
-              location.pathname === "/"
-                ? "text-black bg-gray-100 "
-                : "text-[#766565] bg-white-100"
-            }`}
+            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${location.pathname === "/"
+              ? "text-black bg-gray-100 "
+              : "text-[#766565] bg-white-100"
+              }`}
           >
             <AiFillHome className="text-2xl" />
           </Link>
           <Link
             to={"/explore"}
-            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${
-              location.pathname === "/explore"
-                ? "text-black bg-gray-100 "
-                : "text-[#766565] bg-white-100"
-            }`}
+            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${location.pathname === "/explore"
+              ? "text-black bg-gray-100 "
+              : "text-[#766565] bg-white-100"
+              }`}
           >
             <MdExplore className="text-2xl" />
           </Link>
           <Link
             to={"/popular-products"}
-            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${
-              location.pathname === "/popular-products"
-                ? "text-black bg-gray-100 "
-                : "text-[#766565] bg-white-100"
-            }`}
+            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${location.pathname === "/popular-products"
+              ? "text-black bg-gray-100 "
+              : "text-[#766565] bg-white-100"
+              }`}
           >
             <GiShop className="text-2xl" />
           </Link>
           <Link
             to={"/top-sellers"}
-            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${
-              location.pathname === "/top-sellers"
-                ? "text-black bg-gray-100 "
-                : "text-[#766565] bg-white-100"
-            }`}
+            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${location.pathname === "/top-sellers"
+              ? "text-black bg-gray-100 "
+              : "text-[#766565] bg-white-100"
+              }`}
           >
             <HiUsers className="text-2xl" />
           </Link>
           <Link
             to={"/free-recourses"}
-            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${
-              location.pathname === "/free-recourses"
-                ? "text-black bg-gray-100 "
-                : "text-[#766565] bg-white-100"
-            }`}
+            className={`bg-gray-100 hover:scale-105 duration-500 h-10 flex items-center justify-center ${location.pathname === "/free-recourses"
+              ? "text-black bg-gray-100 "
+              : "text-[#766565] bg-white-100"
+              }`}
           >
             <FaGifts className="text-2xl" />
           </Link>
@@ -95,42 +99,51 @@ const Navbar = ({ Outlet }) => {
               type="text"
               placeholder="Search"
             />
-             <span className="xl:block hidden absolute top-0 right-0   bg-[#FFF2F2] rounded-tl-2xl cursor-pointer"><BiSearch  className="w-12 h-10 text-[#5430E4] flex justify-center items-center p-2"/></span>
+            <span className="xl:block hidden absolute top-0 right-0   bg-[#FFF2F2] rounded-tl-2xl cursor-pointer"><BiSearch className="w-12 h-10 text-[#5430E4] flex justify-center items-center p-2" /></span>
           </div>
-           
-          <div className="flex gap-8 items-center">
-           <div>
-           {themeMode == "light" ? (
-              <BsFillMoonFill
-                onClick={() => setThemeMode("dark")}
-                className="text-2xl text-[#766565]"
-              />
-            ) : (
-              <BsFillSunFill
-                onClick={() => setThemeMode("light")}
-                className="text-2xl text-[#766565]"
-              />
-            )}
-           </div>
-           <div className="relative">
-          
+
+          <div className="flex gap-8 items-center cursor-pointer">
+            <div onClick={toggleColorMode}>
+              {themeMode == "light" ? (
+                <BsFillMoonFill
+                  onClick={() => setThemeMode("dark")}
+                  className="text-2xl text-[#766565]"
+                />
+              ) : (
+                <BsFillSunFill
+                  onClick={() => setThemeMode("light")}
+                  className="text-2xl text-[#766565]"
+                />
+              )}
+            </div>
+
+            <div className="relative">
+
               <BsFillCartCheckFill
                 className="text-2xl text-[#766565]"
               />
 
               <p className=" absolute top-[-6px] left-3 bg-gradient-to-r from-[#C887E4] to-[#A13BCD] h-[19px] w-[18px] rounded-full"><span className=" text-white flex justify-center items-center text-sm">0</span></p>
-          
-           </div>
-           <div className="xs:hidden  xl:flex ">
-           <Link className="block min-w-max px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600" to={'/become-a-seller'}>Become a Seller</Link>
-          
-           </div>
-           <div>
-              <FaUserCircle
-                className="text-2xl text-[#766565]"
+
+            </div>
+            <div className="xs:hidden  xl:flex ">
+              <Link className="block min-w-max px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600" to={'/become-a-seller'}>Become a Seller</Link>
+
+            </div>
+
+
+            {/* create acount for modal */}
+            <div>
+              {openModal && <Singup setOpenModal={setOpenModal} />}
+
+              <FaUserCircle onClick={() => setOpenModal(true)}
+                className="text-2xl text-[#a77f7f]"
               />
-          
-           </div>
+
+            </div>
+
+
+
           </div>
         </div>
       </div>
@@ -143,55 +156,50 @@ const Navbar = ({ Outlet }) => {
             <div className="flex flex-col gap-2">
               <Link
                 to={"/"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <AiFillHome className="text-2xl" />
                 Home
               </Link>
               <Link
                 to={"/explore"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/explore"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/explore"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <MdExplore className="text-2xl" />
                 Explore
               </Link>
               <Link
                 to={"/popular-products"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/popular-products"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/popular-products"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <GiShop className="text-2xl" />
                 Popular Products
               </Link>
               <Link
                 to={"/top-sellers"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/top-sellers"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/top-sellers"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <HiUsers className="text-2xl" />
                 Top Sellers
               </Link>
               <Link
                 to={"/free-recourses"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/free-recourses"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/free-recourses"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <FaGifts className="text-2xl" />
                 Free Resources
@@ -199,11 +207,10 @@ const Navbar = ({ Outlet }) => {
 
               <Link
                 to={"/contactpage"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/contactpage"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/contactpage"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <BsChatRightQuoteFill className="text-2xl" />
                 Contact Us
@@ -212,22 +219,20 @@ const Navbar = ({ Outlet }) => {
             <div className="mt-20">
               <Link
                 to={"/sttings"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/sttings"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/sttings"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <MdSettings className="text-2xl" />
                 Settings
               </Link>
               <Link
                 to={"/help"}
-                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${
-                  location.pathname === "/help"
-                    ? "text-black bg-gray-100 "
-                    : "text-[#766565] bg-white-100"
-                }`}
+                className={`w-full  h-14 flex items-center min-w-max px-2 pl-4 gap-4 ${location.pathname === "/help"
+                  ? "text-black bg-gray-100 "
+                  : "text-[#766565] bg-white-100"
+                  }`}
               >
                 <MdOutlineHelp className="text-2xl" />
                 Help
