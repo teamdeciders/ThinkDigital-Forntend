@@ -8,7 +8,7 @@ import TopSellers from "../Pages/Top Sellers/TopSellers";
 import FreeRecourses from "../Pages/Free Recourses/FreeRecourses";
 import Settings from "../Pages/Settings/Settings";
 import Helps from "../Pages/Helps/Helps";
-import Singup from "../Pages/Authentication.jsx/Singup";
+import SingleProductPage from "../Pages/SingleProductPage/SingleProductPage";
 
 const routes = createBrowserRouter([
     {
@@ -26,6 +26,10 @@ const routes = createBrowserRouter([
             {
                 path: "/popular-products",
                 element: <PopularProducts />
+            },
+            {
+                path: "/product/:id",
+                element: <SingleProductPage />
             },
             {
                 path: "/top-sellers",
