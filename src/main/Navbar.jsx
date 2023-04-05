@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
+import { RiMenu2Line } from "react-icons/ri";
 import { AiFillHome } from "react-icons/ai";
 import {
   BsChatRightQuoteFill,
@@ -13,6 +13,7 @@ import { MdExplore, MdSettings, MdOutlineHelp } from "react-icons/md";
 import { GiShop } from "react-icons/gi";
 import { HiUsers } from "react-icons/hi";
 import { FaGifts ,FaUserCircle} from "react-icons/fa";
+import { BiSearch} from "react-icons/bi";
 const Navbar = ({ Outlet }) => {
   const location = useLocation();
   const [isopen, setisOpen] = useState(true);
@@ -76,10 +77,10 @@ const Navbar = ({ Outlet }) => {
         </div>
       </div>
       {/* Navabr */}
-      <div className="py-4 px-2 bg-white shadow-sm flex items-center  ">
-        <FiMenu
+      <div className="py-4 px-2 bg-white shadow-sm flex items-center">
+        <RiMenu2Line size={70}
           onClick={() => setisOpen(!isopen)}
-          className="text-3xl mr-5 cursor-pointer xs:hidden  xl:flex "
+          className=" mr-5 cursor-pointer xs:hidden  xl:flex "
         />
         <div className="flex gap-2 w-full max-w-7xl">
           <img className="w-10" src={logo} alt="" />
@@ -87,14 +88,16 @@ const Navbar = ({ Outlet }) => {
             Bluefy
           </h3>
         </div>
-        <div className="w-full flex items-center justify-between px-2">
-          <div>
+        <div className="w-full flex items-center justify-between gap-8 px-4">
+          <div className="relative">
             <input
               className="bg-white shadow-sm border border-gray-100 sm:hidden xs:hidden rounded-md h-10 px-2 w-96 focus:outline-none"
               type="text"
               placeholder="Search"
             />
+             <span className="xl:block hidden absolute top-0 right-0   bg-[#FFF2F2] rounded-tl-2xl cursor-pointer"><BiSearch  className="w-12 h-10 text-[#5430E4] flex justify-center items-center p-2"/></span>
           </div>
+           
           <div className="flex gap-8 items-center">
            <div>
            {themeMode == "light" ? (
@@ -109,11 +112,13 @@ const Navbar = ({ Outlet }) => {
               />
             )}
            </div>
-           <div>
+           <div className="relative">
           
               <BsFillCartCheckFill
                 className="text-2xl text-[#766565]"
               />
+
+              <p className=" absolute top-[-6px] left-3 bg-gradient-to-r from-[#C887E4] to-[#A13BCD] h-[19px] w-[18px] rounded-full"><span className=" text-white flex justify-center items-center text-sm">0</span></p>
           
            </div>
            <div className="xs:hidden  xl:flex ">
