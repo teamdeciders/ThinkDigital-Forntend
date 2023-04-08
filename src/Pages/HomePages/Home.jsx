@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import ProductCard from '../../components/child-components/ProductCard';
+import ProductGrid from '../../components/child-components/ProductGrid';
 
 
 const Home = () => {
@@ -8,20 +9,8 @@ const Home = () => {
 
 
   return (
-    <div className=' w-full  p-2 h-full '>
-
-      <div className="w-full flex flex-wrap gap-4">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+    <div className=' w-full  p-2 h-full overflow-y-scroll max-h-[100vh] max-w-full '>
+     <ProductGrid/>
     </div>
   )
 }

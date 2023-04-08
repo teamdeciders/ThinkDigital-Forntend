@@ -2,7 +2,7 @@ import React from 'react'
 
 function TitleCard() {
     return (
-        <div>
+        <div className='max-w-[397px]'>
             <div className='mt-2 flex justify-between items-center'>
                 <div className='flex gap-2'>
                    <span> <img className='w-12 h-12' src="https://i.ibb.co/PggLV9Q/Rectangle-6.png" alt="" /></span>

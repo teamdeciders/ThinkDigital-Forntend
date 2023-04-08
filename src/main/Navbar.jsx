@@ -30,7 +30,7 @@ const Navbar = ({ Outlet }) => {
 
   return (
     // Navbar and Sidevar Here
-    <div className="relative">
+    <div className=" max-w-full">
       {/* Navbar for mobile */}
       <div className=" p-2 bg-white fixed bottom-0 shadow-sm border-t-2  w-full sm:hidden md:hidden lg:hidden xl:hidden">
         <div className="grid grid-cols-5 gap-3">
@@ -255,8 +255,8 @@ const Navbar = ({ Outlet }) => {
         {/* Outlet Here */}
 
         
-        <div
-          className={`min-h-screen border-r-2 ${!isopen ? "w-full" : "w-full"}`}
+        <div 
+          className={`min-h-screen border-r-2 ${isopen ? "w-full " : "w-full "}`}
         >
           <div>
           {

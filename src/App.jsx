@@ -5,8 +5,7 @@ function App() {
  
 
   return (
-    <div className="">
-       
+    <div className=" max-w-full overflow-x-hidden">   
        <RouterProvider router={routes}/>
 
     </div>

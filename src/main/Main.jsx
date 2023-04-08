@@ -1,14 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'
-import Footer from './Footer'
 
 const Main = () => {
   return (
-    <div className='h-full '>
+    <div className='h-full max-w-full'>
 
       <Navbar Outlet={Outlet} />
-      {/* <Footer/> */}
+
 
 
     </div>

@@ -8,9 +8,9 @@ function ProductCard() {
         navigate('/product/01')
     }
     return (
-        <div >
+        <div className='min-w-[397px]' >
             <div onClick={() => handleVisit()} className='bg-white max-w-max rounded-md shadow-sm p-2 cursor-pointer'>
-                <img className="w-[330px] h-[180px] bg-blue-200" src="https://i.ibb.co/9qVCjyT/image50-thumbnail.webp" alt="" />
+                <img className="w-[397px] h-[230px] bg-blue-200" src="https://i.ibb.co/9qVCjyT/image50-thumbnail.webp" alt="" />
             </div>
 
             <TitleCard/>
