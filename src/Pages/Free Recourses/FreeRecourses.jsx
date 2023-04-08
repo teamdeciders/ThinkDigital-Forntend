@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Keyboard, Navigation, Pagination } from "swiper";
 import ProductCard from '../../components/child-components/ProductCard';
+import ProductGrid from '../../components/child-components/ProductGrid';
 const FreeRecourses = () => {
   return (
     <div className=' w-full   p-2 h-full '>
@@ -61,22 +62,7 @@ const FreeRecourses = () => {
       </div>
 
 
-       <div className='grid grid-cols-1 justify-items-center md:grid-cols-2 xl:grid-cols-3 gap-6'>
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       <ProductCard />
-       </div>
-
+      <ProductGrid/>
 
     </div>
   )
