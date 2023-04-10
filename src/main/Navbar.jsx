@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RiMenu2Line } from "react-icons/ri";
 import { AiFillHome } from "react-icons/ai";
 import {
@@ -14,7 +14,7 @@ import { GiShop } from "react-icons/gi";
 import { HiUsers } from "react-icons/hi";
 import { FaGifts, FaUserCircle } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
-import { useColorMode } from "@chakra-ui/react";
+import { Select, useColorMode } from "@chakra-ui/react";
 import LoginSignupModal from "../Pages/Authentication.jsx/LoginSignupModal";
 import FilterProducts from "./FilterProducts";
 const Navbar = ({ Outlet }) => {
@@ -26,6 +26,7 @@ const Navbar = ({ Outlet }) => {
 
   //craete acount
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   return (
     // Navbar and Sidevar Here
@@ -141,8 +142,12 @@ const Navbar = ({ Outlet }) => {
               >
                 Become a Seller
               </Link>
+
               <Link className="block min-w-max px-2 py-2 " to={"/buyer"}>
-                Dashboard
+                Buyer
+              </Link>
+              <Link className="block min-w-max px-2 py-2 " to={"/seller"}>
+                Seller
               </Link>
             </div>
 
