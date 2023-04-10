@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiOutlineRight } from "react-icons/ai";
 
 const productImg = {
   images: [
@@ -54,11 +55,11 @@ function SingleProductPage() {
               ◀
             </span>
             <span
-              className=" absolute right-0 border-r-2  top-1/2 text-white text-3xl  w-auto"
+              className=" absolute right-0 border-2 rounded-full bg-white  top-1/2 text-black text-3xl  w-auto"
               onClick={() => nextSlide(1)}
             >
               {" "}
-              ▶
+              <AiOutlineRight />
             </span>
           </div>
           <div className="w-100% h-[100px] overflow-x-scroll flex select-none">
